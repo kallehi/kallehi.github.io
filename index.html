@@ -244,8 +244,11 @@
 <script>
   document.addEventListener('DOMContentLoaded',function(){
     document.querySelectorAll('.fade').forEach(function(el,i){setTimeout(function(){el.classList.add('in');},80+i*90);});
-    var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:.08});
-    document.querySelectorAll('section .wrap').forEach(function(s){s.classList.add('fade');io.observe(s);});
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:0,rootMargin:"0px 0px -10% 0px"});
+    var secs=document.querySelectorAll('section .wrap');
+    secs.forEach(function(s){s.classList.add('fade');io.observe(s);});
+    // safety net: never leave a section invisible even if the observer doesn't fire
+    setTimeout(function(){secs.forEach(function(s){s.classList.add('in');});},1500);
   });
   var links=[].slice.call(document.querySelectorAll('nav ul a'));
   var map={};links.forEach(function(a){map[a.getAttribute('href').slice(1)]=a;});
