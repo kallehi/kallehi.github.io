@@ -494,8 +494,9 @@ const rows=b=>all(b,".row").map(r=>{const a=r.querySelector("a.rt"),v=r.querySel
   return li((a?link(txt(a),a.getAttribute("href")):esc(txt(r.querySelector(".rt"))))+(v?`<span class="meta">${esc(txt(v))}</span>`:""),txt(r.querySelector(".rl")))});
 const cards=sec=>all(D,`#${sec} .tool`).map(c=>{
   const name=txt(c.querySelector(".tn")),code=c.querySelector("code");
-  const links=all(c,".tool-links a").map(a=>link(txt(a).replace(/\s*↗$/,""),a.getAttribute("href")));
-  return li((c.tagName==="A"?link(name,c.getAttribute("href")):`<strong>${esc(name)}</strong>`)+
+  // same layout for every entry: bold name, description, then its links (a whole-card link becomes "Open")
+  const links=c.tagName==="A"?[link("Open",c.getAttribute("href"))]:all(c,".tool-links a").map(a=>link(txt(a).replace(/\s*↗$/,""),a.getAttribute("href")));
+  return li(`<strong>${esc(name)}</strong>`+
     `<span class="meta">${esc(txt(c.querySelector(".tk")))} · ${esc(txt(c.querySelector(".td")))}</span>`+
     (code?`<span class="meta"><code>${esc(txt(code))}</code></span>`:"")+
     (links.length?`<span class="meta">${links.join(" · ")}</span>`:""))});
