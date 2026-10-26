@@ -153,19 +153,19 @@ h1{font-weight:400;letter-spacing:-.015em}
 .tag text{font:500 12px var(--hand);letter-spacing:.08em;text-transform:uppercase;fill:var(--pen);transform:translateY(-5px)}
 .lbl{font:13px var(--hand)}
 .scene svg path[fill="#c2563a"]{fill:var(--b2)}
-nav.index{gap:6px 18px}
+nav.index{gap:6px 18px;justify-content:space-between}
 nav.index button{font:.78rem var(--hand);color:var(--muted);background:none;border:0;border-bottom:1px solid transparent;border-radius:0;padding:4px 0}
 nav.index button:hover,nav.index button:focus-visible{background:none;color:var(--fg);border-bottom-color:var(--pen)}
 .drawer{border-left:1px solid var(--rule)}
 .dhead{border-bottom:1px solid var(--rule)}
 .dhead .eyebrow{font:.7rem var(--hand);letter-spacing:.08em;text-transform:uppercase}
-.dhead h2{font-weight:400}
+.dhead h2{font-weight:400;margin-top:8px}
 .dbody h3{font:500 .7rem var(--hand);letter-spacing:.1em}
 .dbody a{text-decoration-thickness:1px}
 .yr{font:.78rem var(--hand)}
 .close{border:1px solid var(--rule);border-radius:2px}
 .btn{background:none;color:var(--fg) !important;border:1px solid var(--fg);border-radius:2px;font:.8rem var(--hand)}
-@media (max-width:640px){.drawer{border-top:1px solid var(--rule);border-radius:4px 4px 0 0}.tag text{font-size:12px}}
+@media (max-width:640px){.drawer{border-top:1px solid var(--rule);border-radius:4px 4px 0 0}.tag text{font-size:12px}nav.index{justify-content:flex-start}}
 </style>
 </head>
 <body>
@@ -540,7 +540,7 @@ const P={
   data:{e:"the filing drawers",t:"Data",h:fromClassic(()=>ul(cards("data")))},
   editor:{e:"the bookshelf",t:"Food Policy",h:`<p>I’m a co-editor of <em>Food Policy</em>, an interdisciplinary journal on the economic and social aspects of food policy.</p>
     <p>${link("Visit the journal","https://www.sciencedirect.com/journal/food-policy")}</p>`},
-  bin:{e:"the waste basket",t:"When did you throw this away?",h:`<p>In the last 7 days or the last 30? Recall gets fuzzy.</p>
+  bin:{e:"the waste basket",t:"When did I throw this away?",h:`<p>In the last 7 days or the last 30? Recall gets fuzzy.</p>
     <p>See the ${link("telescoping paper","https://doi.org/10.1093/wber/lhac015")}<span class="meta">Telescoping error in recalled food consumption: Evidence from a survey experiment in Ethiopia · World Bank Economic Review, 2022</span></p>`},
   phone:{e:"the phone",t:"Measuring consumption over the phone",h:`<p>Can a phone survey measure household consumption well enough for standard poverty statistics? We tested it with a survey experiment in urban Ethiopia.</p>
     <ul><li class="nodate"><span>${link("Measuring consumption over the phone: Evidence from a survey experiment in urban Ethiopia","https://doi.org/10.1016/j.jdeveco.2022.103026")}<span class="meta">Journal of Development Economics, 2023</span></span></li>
